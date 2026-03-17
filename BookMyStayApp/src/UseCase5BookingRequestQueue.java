@@ -1,19 +1,15 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.io.Serializable;
 
 /**
  * Use Case 5: Booking Request (First-Come-First-Served)
- *
- * Demonstrates handling booking requests using Queue (FIFO)
- * without modifying inventory.
- *
- * @author Maddha
- * @version 5.0
  */
 
-// Reservation class (represents booking request)
-class Reservation {
-     String guestName;
+// Reservation class
+class Reservation implements Serializable {
+
+    String guestName;
     String roomType;
 
     public Reservation(String guestName, String roomType) {
@@ -21,7 +17,6 @@ class Reservation {
         this.roomType = roomType;
     }
 
-    // ✅ Getter methods
     public String getGuestName() {
         return guestName;
     }
@@ -30,11 +25,11 @@ class Reservation {
         return roomType;
     }
 
-    // ✅ ADD THIS METHOD (IMPORTANT)
     public void display() {
         System.out.println("Guest: " + guestName + " | Room: " + roomType);
     }
 }
+
 // Booking Queue Manager
 class BookingRequestQueue {
 
@@ -44,13 +39,11 @@ class BookingRequestQueue {
         queue = new LinkedList<>();
     }
 
-    // Add request (enqueue)
     public void addRequest(Reservation reservation) {
         queue.add(reservation);
         System.out.println("Booking request added.");
     }
 
-    // Display all requests
     public void showRequests() {
         System.out.println("\n--- Booking Requests (FIFO Order) ---");
 
@@ -69,15 +62,12 @@ public class UseCase5BookingRequestQueue {
         System.out.println("      Book My Stay App - v5.0");
         System.out.println("=======================================");
 
-        // Create queue
         BookingRequestQueue bookingQueue = new BookingRequestQueue();
 
-        // Add booking requests
         bookingQueue.addRequest(new Reservation("Alice", "Single Room"));
         bookingQueue.addRequest(new Reservation("Bob", "Double Room"));
         bookingQueue.addRequest(new Reservation("Charlie", "Suite Room"));
 
-        // Display queue
         bookingQueue.showRequests();
 
         System.out.println("=======================================");
