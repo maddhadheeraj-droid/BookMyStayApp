@@ -13,8 +13,8 @@ import java.util.Queue;
 
 // Reservation class (represents booking request)
 class Reservation {
-    private String guestName;
-    private String roomType;
+     String guestName;
+    String roomType;
 
     public Reservation(String guestName, String roomType) {
         this.guestName = guestName;
