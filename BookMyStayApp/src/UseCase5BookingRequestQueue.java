@@ -21,11 +21,20 @@ class Reservation {
         this.roomType = roomType;
     }
 
+    // ✅ Getter methods
+    public String getGuestName() {
+        return guestName;
+    }
+
+    public String getRoomType() {
+        return roomType;
+    }
+
+    // ✅ ADD THIS METHOD (IMPORTANT)
     public void display() {
         System.out.println("Guest: " + guestName + " | Room: " + roomType);
     }
 }
-
 // Booking Queue Manager
 class BookingRequestQueue {
 
